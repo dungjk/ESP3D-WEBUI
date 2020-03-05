@@ -12,7 +12,7 @@ import { useState, useEffect } from "preact/hooks"
 export default () => {
     useEffect(() => {
     const devMode = process.env.NODE_ENV !== "production"
-    var url = "/command?plain=" + encodeURIComponent("[ESP800]")
+    var url = "/command?cmd=" + encodeURIComponent("[ESP800]")
     console.log(url)
     console.log("Init part development mode=" + devMode)
     fetch(url)
