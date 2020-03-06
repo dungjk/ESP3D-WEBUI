@@ -6,6 +6,7 @@ import Dashboard from "./dashboard"
 import Settings from "./settings"
 import Camera from "./camera"
 import Login from "./login"
+import {Mymessage} from "./http"
 import Router from "preact-router"
 import { useState, useEffect } from "preact/hooks"
 
@@ -13,7 +14,7 @@ export default () => {
     useEffect(() => {
     const devMode = process.env.NODE_ENV !== "production"
     var url = "/command?cmd=" + encodeURIComponent("[ESP800]")
-    console.log(url)
+    Mymessage(url)
     console.log("Init part development mode=" + devMode)
     fetch(url)
       .then((response) => {
