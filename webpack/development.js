@@ -2,6 +2,7 @@ import merge from "webpack-merge"
 import environment from "./environment"
 
 module.exports = merge(environment, {
+        devtool: 'inline-source-map',
         devServer: {
         before: function(app, server, compiler) {
           app.get('/command', function(req, res) {
