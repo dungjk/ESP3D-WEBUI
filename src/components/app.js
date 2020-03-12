@@ -1,4 +1,4 @@
-import { h } from "preact"
+import { h, createContext } from "preact"
 import "../stylesheets/application.scss"
 import { AlertTriangle } from "preact-feather"
 import NavBar from "./nav-bar"
@@ -8,27 +8,52 @@ import Camera from "./camera"
 import Login from "./login"
 import {Mymessage} from "./http"
 import Router from "preact-router"
-import { useState, useEffect } from "preact/hooks"
+import { useState, useEffect, useContext } from "preact/hooks"
 import { IntlProvider, Text } from 'preact-i18n';
 import langFr from './lang/fr.json';
 import langEn from './lang/en.json';
+import {Theme} from './theme'
 
-export default () => {
+function DisplayTheme() {
+  const theme = useContext(Theme);
+  return <p>Active theme: {theme}</p>;
+}
+
+export function App() {
     useEffect(() => {
     const devMode = process.env.NODE_ENV !== "production"
     var url = "/command?cmd=" + encodeURIComponent("[ESP800]")
     Mymessage(url)
     console.log("Init part development mode=" + devMode)
-    fetch(url)
+    /*fetch(url)
       .then((response) => {
         return response.text();
       })
       .then((data) => {
         console.log(data);
+      });*/
+    fetch(url)
+  .then(
+    function(response) {
+      if (response.status !== 200) {
+        console.log('Looks like there was a problem. Status Code: ' +
+          response.status);
+        return;
+      }
+      // Examine the text in the response
+      response.text().then(function(data) {
+        console.log(data);
       });
+    }
+  )
+  .catch(function(err) {
+    console.log('Fetch Error :-S', err);
+  });
     },[]);
     const [lang, setlang] = useState(langFr)
+    const [txt, setTxt] = useState('blue')
     return (
+    <Theme.Provider value={txt}>
     <IntlProvider definition={lang}>
         <NavBar />
         <br/>
@@ -43,7 +68,10 @@ export default () => {
             <Login path="/login"/>
           </Router>
         </div>
-        <button class="btn btn-dark" type="button" onClick={() => {setlang(langFr); console.log("Fr selected");}}>Fr</button>&nbsp;<button class="btn btn-dark" type="button" onClick={() => {setlang(langEn); console.log("En selected");}} >En</button>
+        <button class="btn btn-primary" type="button" onClick={() => {setlang(langFr); setTxt('blue'); console.log("Fr selected");}}>Fr</button>&nbsp;<button class="btn btn-dark" type="button" onClick={() => {setlang(langEn); setTxt('black'); console.log("En selected");}} >En</button>
      </IntlProvider>
+       <DisplayTheme />
+     </Theme.Provider>
     );
 }
+
