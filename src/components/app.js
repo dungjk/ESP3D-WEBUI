@@ -36,13 +36,31 @@ const reducer = (state, action) =>{
     case 'FETCH_FW_ERROR':
             return {
                 loading: false,
-                data : '',
+                data : {},
                 error: 'Error fetching data' 
             }
     default: 
         return state
     }
 }
+
+
+const FW = ({State}) => {
+    if (State.error) {
+        return ('Error fetching data');
+    }
+    if (State.loading) {
+        return ('loading');
+    }
+    return (
+    <ul>
+    <li>Version:<label class='text-info'>{State.data.FWVersion}</label></li>
+    <li>Hostname:<label class='text-info'>{State.data.Hostname}</label></li>
+    <li>WebSocketIP:<label class='text-info'>{State.data.WebSocketIP}</label></li>
+    </ul>
+)
+}
+
 
 export function App() {
     const [lang, setlang] = useState(langFr)
@@ -64,7 +82,7 @@ export function App() {
         return;
       }
       // Examine the text in the response
-      response.text().then(function(data) {
+      response.json().then(function(data) {
         console.log(data);
         dispatch({type:'FETCH_FW_SUCCESS', payload: data})
       });
@@ -96,8 +114,7 @@ export function App() {
      </IntlProvider>
        <DisplayTheme />
      <div>
-     {state.loading? 'loading' : state.data}
-     {state.error ? state.error:null}
+     <FW State={state}/>
      </div>
      </Theme.Provider>
      
