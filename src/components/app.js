@@ -8,7 +8,7 @@ import Camera from "./camera"
 import Login from "./login"
 import {Mymessage} from "./http"
 import Router from "preact-router"
-import { useState, useEffect, useContext, useReducer } from "preact/hooks"
+import { useState, useEffect, useContext, useReducer,useMemo,useRef } from "preact/hooks"
 import { IntlProvider, Text } from 'preact-i18n';
 import langFr from './lang/fr.json';
 import langEn from './lang/en.json';
@@ -49,7 +49,22 @@ const reducer = (state, action) =>{
 }
 
 
+function FocusInput(){
+    const inputRef = useRef(null)
+    useEffect(()=>{
+        console.log('Focus')
+        inputRef.current && inputRef.current.focus()
+        },
+    [])
+    return(
+    <div>
+    <input ref={inputRef} type='text'/>
+    </div>
+    )
+}
+
 const FW = ({State}) => {
+    console.log('render fetch')
     if (State.error) {
         return ('Error fetching data');
     }
@@ -115,6 +130,8 @@ export function App() {
     },[]);
     
     return (
+    <div>
+    <div>
     <Theme.Provider value={txt}>
     <IntlProvider definition={lang}>
         <NavBar />
@@ -133,11 +150,18 @@ export function App() {
         <button class="btn btn-primary" type="button" onClick={() => {setlang(langFr); setTxt('blue'); console.log("Fr selected");}}>Fr</button>&nbsp;<button class="btn btn-dark" type="button" onClick={() => {setlang(langEn); setTxt('black'); console.log("En selected");}} >En</button>
      </IntlProvider>
        <DisplayTheme />
-     <div>
-     <FW State={state}/>
-     </div>
      </Theme.Provider>
-     
+     </div>
+     <FocusInput/>
+     <div>
+      {useMemo(
+          () => (
+            <FW State={state} />
+          ),
+          [state],
+        )}
+     </div>
+    </div>
     );
 }
 
