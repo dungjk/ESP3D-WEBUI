@@ -28,6 +28,10 @@ const initialState = {
 const reducer = (state, action) =>{
     switch (action.type) {
      case 'FETCH_FW_SUCCESS':
+            //to simulate a long time of fetching
+            let i=0
+            while (i < 2000000000)i++
+            //end of delay
             return {
                 loading: false,
                 data : action.payload,
@@ -50,7 +54,23 @@ const FW = ({State}) => {
         return ('Error fetching data');
     }
     if (State.loading) {
-        return ('loading');
+        return (
+         <modal tabindex="-1" role="dialog" className={State.loading?"modal d-block":"modal d-none"}>
+    <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Please wait</h5>
+      </div>
+      <div class="modal-body">
+        <p>Loading...</p>
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+    </modal>
+        
+        );
     }
     return (
     <ul>
