@@ -74,10 +74,9 @@ const FW = ({State}) => {
     <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title">Please wait</h5>
       </div>
       <div class="modal-body">
-        <p>Loading...</p>
+        <center>Loading...</center>
       </div>
       <div class="modal-footer">
       </div>
