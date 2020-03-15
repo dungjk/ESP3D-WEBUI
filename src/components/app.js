@@ -86,11 +86,16 @@ const FW = ({State}) => {
         
         );
     }
+    let property
+    let dataarray = []
+    for(property in State.data){
+        let id = property
+        dataarray.push({id : property, value : State.data[property]})
+        console.log (property + " : " + State.data[property])
+    }
     return (
     <ul>
-    <li>Version:<label class='text-info'>{State.data.FWVersion}</label></li>
-    <li>Hostname:<label class='text-info'>{State.data.Hostname}</label></li>
-    <li>WebSocketIP:<label class='text-info'>{State.data.WebSocketIP}</label></li>
+        {dataarray.map(dataitem =>(<li>{dataitem.id} : {dataitem.value} </li>) )}
     </ul>
 )
 }
