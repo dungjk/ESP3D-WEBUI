@@ -3,16 +3,23 @@
   "description": "Web UI for ESP3D",
   "scripts": {
     "build": "rollup -c",
-    "lint": "tslint -c ./tslint.json --project ./tsconfig.json"
+    "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
+    "serve": "npx node-static ./dist --port=8080"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "@rollup/plugin-typescript": "^4.1.2",
     "@types/react": "^16.9.35",
-    "bulma": "^0.8.2",
+    "@typescript-eslint/eslint-plugin": "^3.1.0",
+    "@typescript-eslint/parser": "^3.1.0",
     "del": "latest",
     "deprecated": "latest",
+    "eslint": "^7.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.20.0",
+    "eslint-plugin-react-hooks": "^4.0.4",
     "fs": "latest",
     "gulp": "latest",
     "gulp-bytediff": "latest",
@@ -30,23 +37,26 @@
     "gulp-smoosher": "latest",
     "gulp-uglify": "latest",
     "gulp-zip": "latest",
+    "http-server": "^0.12.3",
     "jshint": "latest",
     "merge-stream": "latest",
     "node-sass": "^4.14.1",
-    "preact": "^10.4.4",
-    "preact-router": "^3.2.1",
+    "prettier": "^2.0.5",
     "rollup": "^2.12.0",
     "rollup-plugin-postcss": "^3.1.1",
     "rollup-plugin-terser": "^6.1.0",
     "tslib": "^2.0.0",
-    "tslint": "^6.1.2",
-    "tslint-microsoft-contrib": "^6.2.0",
     "typescript": "^3.9.3"
   },
   "repository": "https://github.com/luc-github/ESP3D-WEBUI",
   "author": "Luc LEBOSSE",
   "license": "(ISC OR GPL-3.0)",
   "dependencies": {
-    "global": "latest"
+    "bootstrap": "^4.5.0",
+    "global": "latest",
+    "preact": "^10.4.4",
+    "preact-markup": "^1.6.0",
+    "preact-router": "^3.2.1",
+    "unistore": "^3.5.1"
   }
 }

@@ -66,19 +66,19 @@ const plugins = [
   }),
 ];
 export default [
-  {
-    input: './src/index.tsx',
-    plugins: [
-      ...plugins,
-      html({
-        title: 'ESP3D',
-      }),
-    ],
-    output: {
-      file: './dist/bundle.js',
-      format: 'iife',
-    },
-  },
+  // {
+  //   input: './src/index.tsx',
+  //   plugins: [
+  //     ...plugins,
+  //     html({
+  //       title: 'ESP3D',
+  //     }),
+  //   ],
+  //   output: {
+  //     file: './dist/bundle.js',
+  //     format: 'iife',
+  //   },
+  // },
   {
     input: './src/index.tsx',
     plugins: [
