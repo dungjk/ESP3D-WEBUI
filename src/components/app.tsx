@@ -1,8 +1,14 @@
 import { FunctionalComponent, h } from 'preact';
-import MainComponent from './main/main.component';
+import DashboardComponent from './dashboard/dashboard.component';
+import { Provider } from 'unistore/preact';
+import applicationStore from './../stores/application.store';
 
 const App: FunctionalComponent = () => {
-  return <MainComponent />;
+  return (
+    <Provider store={applicationStore}>
+      <DashboardComponent />
+    </Provider>
+  );
 };
 
 export default App;
