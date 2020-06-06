@@ -83,10 +83,10 @@ export default [
     input: './src/index.tsx',
     plugins: [
       ...plugins,
-      terser(),
+      // terser(),
       html({
         title: 'ESP3D',
-        fileName: 'index.bundle.html',
+        fileName: 'index.html',
         template: generateHtmlBundle,
       }),
     ],

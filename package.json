@@ -52,7 +52,7 @@
   "author": "Luc LEBOSSE",
   "license": "(ISC OR GPL-3.0)",
   "dependencies": {
-    "bootstrap": "^4.5.0",
+    "bulma": "^0.8.2",
     "global": "latest",
     "preact": "^10.4.4",
     "preact-markup": "^1.6.0",

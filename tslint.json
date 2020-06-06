@@ -1,9 +1,0 @@
-{
-  "extends": ["tslint-microsoft-contrib/recommended"],
-  "rules": {
-    "quotemark": [true, "single", "jsx-double"],
-    "no-relative-import": false,
-    "export-name": false,
-    "import-name": false
-  }
-}

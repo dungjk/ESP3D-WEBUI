@@ -32,5 +32,7 @@ module.exports = {
   },
   rules: {
     'react/no-unknown-property': ['error', { ignore: ['class'] }],
+    '@typescript-eslint/no-unsafe-assignment': false,
+    '@typescript-eslint/no-explicit-any': false,
   },
 };

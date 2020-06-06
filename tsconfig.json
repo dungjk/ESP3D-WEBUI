@@ -6,6 +6,7 @@
     "allowJs": true,
     "jsx": "react",
     "jsxFactory": "h",
+    "noImplicitAny": false,
 
     /* Strict Type-Checking Options */
     "strict": true,
