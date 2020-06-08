@@ -4,7 +4,7 @@
   "scripts": {
     "build": "rollup -c",
     "lint": "eslint ./src/**/*.{js,jsx,ts,tsx}",
-    "serve": "npx node-static ./dist --port=8080"
+    "serve": "npx node-static ./dist --port=8088"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^12.0.0",
@@ -52,10 +52,10 @@
   "author": "Luc LEBOSSE",
   "license": "(ISC OR GPL-3.0)",
   "dependencies": {
-    "bulma": "^0.8.2",
+    "bulma": "^0.9.0",
     "global": "latest",
     "preact": "^10.4.4",
-    "preact-markup": "^1.6.0",
+    "preact-feather": "^4.1.0",
     "preact-router": "^3.2.1",
     "unistore": "^3.5.1"
   }

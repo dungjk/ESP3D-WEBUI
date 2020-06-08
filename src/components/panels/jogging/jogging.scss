@@ -1,0 +1,61 @@
+@import './../../../stylesheet/variable';
+
+svg#jogging {
+  text {
+    font-family: helvetica;
+    stroke: $color-black;
+    stroke-width: 1;
+    fill: $color-black;
+  }
+
+  text.home {
+    font-family: helvetica;
+    stroke: $color-black;
+    stroke-width: 1;
+    fill: $color-black;
+    font-weight: 900;
+    font-size: 16;
+    pointer-events: none;
+  }
+
+  text.scl {
+    font-family: helvetica;
+    stroke: $color-white;
+    stroke-width: 1;
+    fill: $color-white;
+    pointer-events: none;
+  }
+
+  circle.scl {
+    fill: $color-black;
+    fill-opacity: 0.5;
+    stroke: $color-red;
+    stroke-width: 3;
+    filter: url(#f1);
+    pointer-events: none;
+  }
+
+  path.home {
+    stroke: $color-black;
+  }
+
+  path.std {
+    stroke: $color-black;
+    stroke-width: 1;
+    filter: url(#f1);
+  }
+
+  path.std:hover {
+    fill: $color-orange;
+  }
+
+  rect.std {
+    stroke: $color-black;
+    stroke-width: 1;
+    filter: url(#f1);
+  }
+
+  rect.std:hover {
+    fill: $color-orange;
+  }
+}

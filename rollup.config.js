@@ -2,7 +2,7 @@ import rollupCommonjs from '@rollup/plugin-commonjs';
 import rollupResolve from '@rollup/plugin-node-resolve';
 import rollupTs from '@rollup/plugin-typescript';
 import rollupPostScss from 'rollup-plugin-postcss';
-import { terser } from 'rollup-plugin-terser';
+// import { terser } from 'rollup-plugin-terser';
 import { html, makeHtmlAttributes } from './build/plugin-html';
 import { extname } from 'path';
 

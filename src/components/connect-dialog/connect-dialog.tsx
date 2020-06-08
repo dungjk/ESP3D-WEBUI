@@ -1,15 +1,10 @@
 import { h } from 'preact';
 import { useEffect } from 'preact/hooks';
 import { connect } from 'unistore/preact';
-import { SendCommand } from 'utils/http.utils';
-
-function setStoreState(store: any, state: any) {
-  return store.setState(state);
-}
 
 const actions = (store) => ({
   connect() {
-    store.setState({ connecting: true });
+    // store.setState({ connecting: true });
     console.log('xxx');
     // SendCommand('[ESP800]').then((resp) => {
     //   console.log(resp);
